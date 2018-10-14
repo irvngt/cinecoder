@@ -15,3 +15,16 @@ import wpPot from 'gulp-wp-pot' /* genera plantilla .pot para manejar traduccion
 import sort from 'gulp-sort' /* permite ordenar archivos php a  gulp-wp-pot*/
 
 
+const reload = browserSync,
+reloadFiles =[
+    './script.js',
+    './style.css',
+    './**/*.php'
+],
+
+proxyOptions={
+    proxy:'wocker.test/',
+    notify:false
+}
+
+gulp.task('server',()=> browserSync.init(reloadFiles,proxyOptions)) /* iniciar la tarea y  asi correr el servidor, recargando automaticamen los archivos "reloadFiles" */
