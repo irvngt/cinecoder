@@ -1,5 +1,5 @@
 import gulp from 'gulp'
-import browserSync from 'browser-sync' /* servidor  */
+import browserSync from 'browser-sync' /* servidor en tiempo real */
 import plumber from 'gulp-plumber' /* evita que se crasehe el proseso de node */
 import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps' /* mapas de origen guardan registos de linea en codigo original */
@@ -15,7 +15,7 @@ import wpPot from 'gulp-wp-pot' /* genera plantilla .pot para manejar traduccion
 import sort from 'gulp-sort' /* permite ordenar archivos php a  gulp-wp-pot*/
 
 
-const reload = browserSync,
+const reload = browserSync.reload,
 reloadFiles =[
     './script.js',
     './style.css',
@@ -27,4 +27,29 @@ proxyOptions={
     notify:false
 }
 
-gulp.task('server',()=> browserSync.init(reloadFiles,proxyOptions)) /* iniciar la tarea y  asi correr el servidor, recargando automaticamen los archivos "reloadFiles" */
+/* 4 tareas de gulp task, src, dest, watch */
+gulp.task('server', () => browserSync.init(reloadFiles, proxyOptions)) /* iniciar la tarea y  asi correr el servidor, recargando automaticamen los archivos "reloadFiles" */
+
+gulp.task('css',()=>{
+    gulp.src('./css/style.scss') /*depues de recibir src entran todos los plugins para css*/
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(plumber()) /* si detecta algun error de sinaxis no crashee */
+    .pipe(sass())
+    .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
+    .pipe(cleanCSS())/* minifique */
+    .pipe(sourcemaps.write('./css/'))/* donde quiero escribir los sourcemaps */
+    .pipe(gulp.dest('./'))/* destino en raiz de mi carpeta */
+    .pipe(reload({ stream: true })) /* recargue en mi hoja de estilos sass */
+
+})
+
+
+
+gulp.task('default', ['server', 'css'], () => {  /* por default ejecuta la tarea al poner en terminal solo gulp */
+    gulp.watch('./css/**/*.+(scss|css)', ['css']) /* que observe cualquier cambio en archivos scss o css en la carpeta css y ejecute tare css*/
+  
+  })
+
+
+
+  

@@ -1,0 +1,29 @@
+/*!   CUANDO PONEMOS SIGNO DE EXCLAMACION EN EL COMENTARIO AL COMPILAR A CSS SE CONSERVARA ESTE COMETARIO
+Theme Name: kEnAi Gulp WP Starter Theme
+Theme URI: https://jonmircha.com/mawt/
+Author: Jonathan MirCha
+Author URI: https://jonmircha.com/
+Description: Una breve descripción de las características que tu tema ofrece a nivel de diseño, programación y personalización. Escríbela en inglés.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, theme-options, translation-ready
+Text Domain: kenai
+*/
+html{
+    background: {
+        color: steelblue;
+        repeat:no-repeat;
+    }
+    color: bisque;
+    font-family: sans-serif;
+   p{
+       margin: 40px;
+       scroll-behavior: inherit;
+       
+   }
+}
+
+body{
+    display: flex; /* lo compila con los 2 ultimos prefijos para navegadore antiguos */
+}
