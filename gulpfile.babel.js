@@ -25,6 +25,13 @@ reloadFiles =[
 proxyOptions={
     proxy:'wocker.test/',
     notify:false
+},
+
+imageminOptions={
+    progressive:true,
+    optimizationLevel:7,//0-7 low-high
+    interlaced:true, /* interlazado */
+    svgoPlugins:[{removeViewBox:false}] /* para img svg remueva viewBox */
 }
 
 /* 4 tareas de gulp task, src, dest, watch */
@@ -57,14 +64,20 @@ gulp.task('js', () => {
       .pipe(reload({ stream: true }))
   })
 
+
+  gulp.task('img', () => {
+    gulp.src('./img/raw/**/*.{png,jpg,jpeg,gif,svg}')
+      .pipe(imagemin(imageminOptions)) /* optimizar con pugin image min */
+      .pipe(gulp.dest('./img')) 
+      /* esta tarea solo se ejecutara uan vez y no entrara a la tarea por default */
+  })
+ 
   
   
 
-
-gulp.task('default', ['server', 'css'], () => {  /* por default ejecuta la tarea al poner en terminal solo gulp */
+gulp.task('default', ['server','css','js'], () => {  /* por default ejecuta la tarea al poner en terminal solo gulp */
     gulp.watch('./css/**/*.+(scss|css)', ['css']) /* que observe cualquier cambio en archivos scss o css en la carpeta css y ejecute tare css*/
     gulp.watch('./js/**/*.js', ['js']) /* que observe cualquier cambio cualquier  archivo js en la carpeta js y ejecute tare js*/
-  
   })
 
 
