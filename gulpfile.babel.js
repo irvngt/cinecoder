@@ -43,10 +43,27 @@ gulp.task('css',()=>{
 
 })
 
+gulp.task('js', () => {
+    browserify('./js/index.js')
+      .transform(babelify)
+      .bundle()
+      .on('error', err => console.log(err.message))
+      .pipe(source('script.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sourcemaps.write('./js/'))
+      .pipe(jsmin())
+      .pipe(gulp.dest('./'))
+      .pipe(reload({ stream: true }))
+  })
+
+  
+  
 
 
 gulp.task('default', ['server', 'css'], () => {  /* por default ejecuta la tarea al poner en terminal solo gulp */
     gulp.watch('./css/**/*.+(scss|css)', ['css']) /* que observe cualquier cambio en archivos scss o css en la carpeta css y ejecute tare css*/
+    gulp.watch('./js/**/*.js', ['js']) /* que observe cualquier cambio cualquier  archivo js en la carpeta js y ejecute tare js*/
   
   })
 
