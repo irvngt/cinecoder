@@ -18,3 +18,9 @@
  }
 
  add_action('wp_enqueue_scripts','cinecoder_scripts');
+
+
+ function cinecoder_setup(){
+  load_theme_textdomain('cinecoder', get_stylesheet_directory().'/languages');
+ }
+add_action('after_setup_theme', 'cinecoder_setup');

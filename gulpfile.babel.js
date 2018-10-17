@@ -32,7 +32,13 @@ imageminOptions={
     optimizationLevel:7,//0-7 low-high
     interlaced:true, /* interlazado */
     svgoPlugins:[{removeViewBox:false}] /* para img svg remueva viewBox */
-}
+},
+wpPotOptions = {
+    domain: 'cinecoder', 
+    package: 'cinecoder',
+    lastTranslator: 'Irving Mendoza <irving@webdesignrs.com>'
+  },
+potFile = './languages/en_US.pot' /* en que carpeta se guarda */
 
 /* 4 tareas de gulp task, src, dest, watch */
 gulp.task('server', () => browserSync.init(reloadFiles, proxyOptions)) /* iniciar la tarea y  asi correr el servidor, recargando automaticamen los archivos "reloadFiles" */
@@ -70,6 +76,13 @@ gulp.task('js', () => {
       .pipe(imagemin(imageminOptions)) /* optimizar con pugin image min */
       .pipe(gulp.dest('./img')) 
       /* esta tarea solo se ejecutara uan vez y no entrara a la tarea por default */
+  })
+
+  gulp.task('translate', () => { /* traduccion */
+    gulp.src('./**/*.php') /* busca todos los archivos php y sub */
+      .pipe(sort()) /*  ordenalos para wpPot*/
+      .pipe(wpPot(wpPotOptions)) /* recibe opciones */
+      .pipe(gulp.dest(potFile)) /* donde se alojara el archivo archivo potfile */
   })
  
   

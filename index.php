@@ -14,8 +14,12 @@
     <li><a href="http://">ADIOS MIGUEL</a></li>
     <li><a href="http://">ADIOS MIGUEL</a></li>
     <li><a href="http://">ADIOS MIGUEL</a></li>
-    <li><a href="http://">ADIOS MIGUEL</a></li>
-
+    <li><a href="http://"><?php _e('hola miguelonnnnn','cinecoder'); ?></a></li>
+    <p><?php _e('Fuckoff','cinecoder'); ?></p>
+    <p>
+    <?php  
+    echo __('Adios Miguel','cinecoder'); ?>
+    </p>
 <?php  wp_footer(); ?>
 </body>
 </html>
