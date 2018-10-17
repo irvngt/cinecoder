@@ -26,4 +26,5 @@ html{
 
 body{
     display: flex; /* lo compila con los 2 ultimos prefijos para navegadore antiguos */
+    align-content: space-between;
 }
