@@ -1,13 +1,57 @@
-@charset "UTF-8";/*!   CUANDO PONEMOS SIGNO DE EXCLAMACION EN EL COMENTARIO AL COMPILAR A CSS SE CONSERVARA ESTE COMETARIO
-Theme Name: kEnAi Gulp WP Starter Theme
-Theme URI: https://jonmircha.com/mawt/
-Author: Jonathan MirCha
-Author URI: https://jonmircha.com/
-Description: Una breve descripción de las características que tu tema ofrece a nivel de diseño, programación y personalización. Escríbela en inglés.
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, theme-options, translation-ready
-Text Domain: kenai
-*/html{background-color:#4682b4;background-repeat:no-repeat;color:bisque;font-family:sans-serif}html p{margin:40px;scroll-behavior:inherit}body{display:-webkit-box;display:-ms-flexbox;display:flex}
+@charset "UTF-8";
+/*! Theme Name: kEnAi Gulp WP Starter Theme
+	 Theme URI: https://jonmircha.com/mawt/
+	 Author: Jonathan MirCha
+	 Author URI: https://jonmircha.com/
+	 Description: Starter theme
+	 Version: 1.0.0
+	 License: GNU General Public License v2 or later
+	 Text Domain: kenai
+*/
+
+:root{
+	--bg:#ffffff;
+	--accent:#0b74de;
+	--text:#222222;
+	--muted:#6b6b6b;
+}
+
+html{background-color:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial}
+/* Skip link - visible on focus */
+.skip-link{
+	position:absolute;
+	left:-999px;
+	top:0;
+	background:#000;
+	color:#fff;
+	padding:0.5rem 1rem;
+	z-index:999;
+}
+.skip-link:focus{
+	left:1rem;
+	top:1rem;
+}
+
+header{padding:1rem}
+header h1{margin:0;font-size:1.5rem}
+header h1 a{color:var(--text);text-decoration:none}
+
+nav ul{display:flex;gap:1rem;list-style:none;padding:0 1rem;margin:0}
+nav a{color:var(--accent);text-decoration:none}
+nav a:focus, nav a:hover{outline:3px solid rgba(11,116,222,0.15);border-radius:4px}
+
+main{padding:1rem}
+
+/* Responsive: stack nav on small screens */
+@media (max-width:600px){
+	nav ul{flex-direction:column;gap:0.5rem}
+	header h1{font-size:1.25rem}
+}
+
+/* Focus-visible improvements for keyboard users */
+a:focus{outline:3px solid #ffb703;outline-offset:2px}
+
+/* Ensure paragraphs have readable measure */
+p{line-height:1.6;max-width:60ch}
+
 /*# sourceMappingURL=css/style.css.map */

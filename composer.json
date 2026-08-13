@@ -1,0 +1,12 @@
+{
+  "name": "cinecoder/cinecoder",
+  "description": "Cinecoder theme tooling",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "friendsofphp/php-cs-fixer": "^3.14"
+  },
+  "scripts": {
+    "lint:php": "vendor/bin/phpcs -n --standard=phpcs.xml",
+    "fix:php": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+  }
+}

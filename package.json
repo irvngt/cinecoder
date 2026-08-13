@@ -4,7 +4,11 @@
   "description": "kit de inicio para trabajar temas en wp optimizado con nodejs y gulp",
   "main": "gulpfile.babel.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint 'js/**/*.js'",
+    "lint:js:fix": "eslint 'js/**/*.js' --fix",
+    "lint:css": "stylelint 'css/**/*.scss' 'style.css'",
+    "lint": "npm run lint:js && npm run lint:css"
   },
   "author": "Irving Mendoza",
   "license": "MIT",
@@ -28,6 +32,13 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-wp-pot": "^2.3.2",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "eslint": "^8.50.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^33.0.0"
   }
 }
