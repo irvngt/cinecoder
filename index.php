@@ -10,15 +10,15 @@
 <body>
     <h1>hola miguel</h1>
 
-    <li><a href="http://">ADIOS MIGUEL</a></li>
-    <li><a href="http://">ADIOS MIGUEL</a></li>
-    <li><a href="http://">ADIOS MIGUEL</a></li>
-    <li><a href="http://">ADIOS MIGUEL</a></li>
-    <li><a href="http://"><?php _e('hola miguelonnnnn','cinecoder'); ?></a></li>
+    <li><a href="http://">ADIOS Luis</a></li>
+    <li><a href="http://">ADIOS Luis</a></li>
+    <li><a href="http://">ADIOS Luis</a></li>
+    <li><a href="http://">ADIOS Luis</a></li>
+    <li><a href="http://"><?php _e('hola Luis Negrete','cinecoder'); ?></a></li>
     <p><?php _e('Fuckoff','cinecoder'); ?></p>
     <p>
     <?php  
-    echo __('Adios Miguel','cinecoder'); ?>
+    echo __('Adios Luis','cinecoder'); ?>
     </p>
 <?php  wp_footer(); ?>
 </body>
