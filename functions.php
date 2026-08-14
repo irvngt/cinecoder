@@ -11,10 +11,12 @@
 */
 
  function cinecoder_scripts(){
-    wp_enqueue_style('style', get_stylesheet_uri(), array(), '1.0.0', 'all');
+  $theme_dir = get_stylesheet_directory();
+  wp_enqueue_style( 'style', get_stylesheet_uri(), array(), filemtime( $theme_dir . '/style.css' ), 'all' );
 
-    wp_enqueue_script( 'jquery' );
-   wp_enqueue_script( 'script', get_template_directory_uri() . '/script.js', array('jquery'), '1.0.0', true );
+  wp_enqueue_script( 'jquery' );
+  wp_enqueue_script( 'script', get_template_directory_uri() . '/script.js', array( 'jquery' ), filemtime( $theme_dir . '/script.js' ), true );
+  wp_enqueue_script( 'menu', get_template_directory_uri() . '/js/menu.js', array(), filemtime( $theme_dir . '/js/menu.js' ), true );
  }
 
  add_action('wp_enqueue_scripts','cinecoder_scripts');

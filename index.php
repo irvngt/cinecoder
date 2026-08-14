@@ -11,9 +11,13 @@
 
     <header>
         <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Hola Miguel', 'cinecoder' ); ?></a></h1>
+        <button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+            <span class="sr-only"><?php esc_html_e( 'Abrir menú', 'cinecoder' ); ?></span>
+            <span aria-hidden="true">☰</span>
+        </button>
     </header>
 
-    <nav role="navigation" aria-label="<?php esc_attr_e( 'Menú principal', 'cinecoder' ); ?>">
+    <nav id="primary-menu" role="navigation" aria-label="<?php esc_attr_e( 'Menú principal', 'cinecoder' ); ?>">
         <ul>
             <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Inicio', 'cinecoder' ); ?></a></li>
             <li><a href="#"><?php esc_html_e( 'Acerca', 'cinecoder' ); ?></a></li>
